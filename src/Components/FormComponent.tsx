@@ -6,10 +6,11 @@ import type { FormComponentProps } from "./TodoApp";
 export default function FormComponent({
   title,
   handleFormOnChange,
+  handleOnSubmit,
 }: FormComponentProps) {
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleOnSubmit}>
         <label htmlFor="title">Todo Title</label>
         <input
           type="text"

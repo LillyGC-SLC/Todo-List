@@ -4,12 +4,23 @@
 //3. a button to edit this todo entry
 //4. a checkbox that will be used to check the entry if completed.
 
-import type { TodoCardProps } from "./TodoApp";
+import type { TodoCardFunctions } from "./TodoApp";
 
-export default function TodoCard({ checked, title }: TodoCardProps) {
+export default function TodoCard({
+  id,
+  checked,
+  title,
+  handleTodoCheck,
+}: TodoCardFunctions) {
   return (
     <div>
-      <input type="checkbox" name="checked" id="checked" checked={checked} />
+      <input
+        type="checkbox"
+        name="checked"
+        id="checked"
+        checked={checked}
+        onChange={(e) => handleTodoCheck(e, id)}
+      />
       <span>{title}</span>
       <button>Delete</button>
       <button>Edit</button>

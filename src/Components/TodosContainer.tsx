@@ -3,12 +3,15 @@
 import type { TodosContainerProps } from "./TodoApp";
 import TodoCard from "./TodoCard";
 
-export default function TodosContainer({ todosList }: TodosContainerProps) {
+export default function TodosContainer({
+  todosList,
+  handleTodoCheck,
+}: TodosContainerProps) {
   return (
     <div>
       {todosList.length > 0 || "Todo List is Empty"}
       {todosList.map((todo) => (
-        <TodoCard key={todo.id} {...todo} />
+        <TodoCard key={todo.id} {...todo} handleTodoCheck={handleTodoCheck}/>
       ))}
     </div>
   );
